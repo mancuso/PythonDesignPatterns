@@ -4,6 +4,7 @@ from random import shuffle
 
 Card = collections.namedtuple('Card', ['rank', 'suit'])
 
+
 class FrenchDeck:
     ranks = [str(n) for n in range(2, 11)] + list('JQKA')
     suits = 'spades diamonds clubs hearts'.split()
@@ -19,7 +20,7 @@ class FrenchDeck:
     def __getitem__(self, item):
         return self._cards[item]
 
-    # Third method needed to convert immutable protocol to mutable protocol
+    # Third method needed to convert immutable sequence protocol to mutable protocol
     def __setitem__(self, key, value):
         self._cards[key] = value
 
@@ -39,7 +40,6 @@ for card in deck:
 
 for card in sorted(deck, key=spades_high):
     print(card)
-
 
 print(choice(deck))
 
