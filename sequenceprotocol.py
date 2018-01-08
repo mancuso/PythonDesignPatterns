@@ -12,15 +12,15 @@ class FrenchDeck:
     def __init__(self):
         self._cards = [Card(rank, suit) for suit in self.suits for rank in self.ranks]
 
-    # First of two methods needed for immutable protocol
+    # First of two methods needed for immutable secuence protocol
     def __len__(self):
         return len(self._cards)
 
-    # Second of two methods needed for immutable protocol
+    # Second of two methods needed for immutable secuence protocol
     def __getitem__(self, item):
         return self._cards[item]
 
-    # Third method needed to convert immutable sequence protocol to mutable protocol
+    # Third method to convert immutable sequence protocol to mutable sequence protocol
     def __setitem__(self, key, value):
         self._cards[key] = value
 
@@ -47,5 +47,4 @@ shuffle(deck)
 
 for card in deck:
     print(card)
-
 
