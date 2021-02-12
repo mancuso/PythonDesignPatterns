@@ -30,8 +30,6 @@ class Vector:
         return Vector(self.x * scalar, self.y * scalar, self.z * scalar)
 
 
-v = Vector(3, 4, 8)
-
 
 class Vector3d:
     typecode = 'd'
@@ -68,3 +66,5 @@ class Vector3d:
 
 
 
+v = Vector3d(3, 4, 8)
+print(v)
