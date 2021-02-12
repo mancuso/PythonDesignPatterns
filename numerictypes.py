@@ -10,7 +10,7 @@ class Vector:
         self.z = z
 
     def __repr__(self):
-        return 'Vector(%r, %r)' % (self.x, self.y, self.z)
+        return 'Vector(%r, %r, %r)' % (self.x, self.y, self.z)
 
     def __abs__(self):
         return math.hypot(self.x, self.y, self.z)
@@ -66,5 +66,7 @@ class Vector3d:
 
 
 
-v = Vector3d(3, 4, 8)
-print(v)
+v1 = Vector(3, 4, 8)
+v2 = Vector(2, 9, 1)
+v3 = v1 + v2
+print(v3)
