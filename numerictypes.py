@@ -4,15 +4,16 @@ import math
 
 class Vector:
 
-    def __init__(self, x=0, y=0):
+    def __init__(self, x=0, y=0, z=0):
         self.x = x
         self.y = y
+        self.z = z
 
     def __repr__(self):
-        return 'Vector(%r, %r)' % (self.x, self.y)
+        return 'Vector(%r, %r)' % (self.x, self.y, self.z)
 
     def __abs__(self):
-        return math.hypot(self.x, self.y)
+        return math.hypot(self.x, self.y, self.z)
 
     # By default User defined instances considered true, unless either __boo__ or __len__ is implemented
     def __bool__(self):
@@ -22,24 +23,26 @@ class Vector:
     def __add__(self, other):
         x = self.x + other.x
         y = self.y + other.y
-        return Vector(x, y)
+        z = self.z + other.z
+        return Vector(x, y, z)
 
     def __mul__(self, scalar):
-        return Vector(self.x * scalar, self.y * scalar)
+        return Vector(self.x * scalar, self.y * scalar, self.z * scalar)
 
 
-v = Vector(3, 4)
+v = Vector(3, 4, 8)
 
 
-class Vector2d:
+class Vector3d:
     typecode = 'd'
 
-    def __init__(self, x, y):
+    def __init__(self, x, y, z):
         self.x = float(x)
         self.y = float(y)
+        self.z = float(z)
 
     def __iter__(self):
-        return (i for i in (self.x,  self.y))
+        return (i for i in (self.x,  self.y, self.z))
 
     def __repr__(self):
         class_name = type(self).__name__
@@ -56,10 +59,10 @@ class Vector2d:
         return tuple(self) == tuple(other)
 
     def __abs__(self):
-        return math.hypot(self.x, self.y)
+        return math.hypot(self.x, self.y, self.z)
 
     def __bool__(self):
-        return bool(abs(self.x, self.y))
+        return bool(abs(self.x, self.y, self.z))
 
     
 
